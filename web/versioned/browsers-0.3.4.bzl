@@ -89,6 +89,17 @@ def org_chromium_chromedriver():
             "CHROMEDRIVER": "chromedriver_linux64/chromedriver",
         },
     )
+    platform_archive(
+        name = "org_chromium_chromedriver_linux_arm64",
+        licenses = ["reciprocal"],  # BSD 3-clause, ICU, MPL 1.1, libpng (BSD/MIT-like), Academic Free License v. 2.0, BSD 2-clause, MIT
+        #sha256 = "8813b9fee041c1033d332a309c02a4d04658999fada4771c5901966b3558bda4",
+        urls = [
+            "https://launchpad.net/ubuntu/+archive/primary/+files/chromium-chromedriver_1snap1-0ubuntu2_arm64.deb",
+        ],
+        named_files = {
+            "CHROMEDRIVER": "chromedriver_arm64/chromedriver",
+        },
+    )
 
     platform_archive(
         name = "org_chromium_chromedriver_macos_x64",
@@ -141,6 +152,25 @@ def org_chromium_chromium():
     )
 
     platform_archive(
+        name = "org_chromium_chromium_linux_x64",
+        licenses = ["notice"],  # BSD 3-clause (maybe more?)
+        #sha256 = "b2dba543e76293d9718462eccea482fde606f16991775a73bdfbfcd32dd6a339",
+        # 122.0.6261.90
+        urls = [
+            "https://launchpad.net/ubuntu/+archive/primary/+files/chromium-browser_1snap1-0ubuntu2_arm64.deb",
+        ],
+        named_files = {
+            "CHROMIUM": "chrome-linux/chrome",
+        },
+    )
+
+    # Checksums-Sha256:
+ #696010297777d91914517a0424d2f9f23614cfcb15dcd6d1472238eec060c33b 6633 chromium-browser_1snap1-0ubuntu2_arm64.buildinfo
+ #1f9599f4a7f6e62af54cbb30c323e9685613e826dfda312b7af50ad8b97c22c9 50050 chromium-browser_1snap1-0ubuntu2_arm64.deb
+ #adb2823690274b9f0c556bd9b0bb6cc639646e47600950cff4ec208038b76d16 2308 chromium-chromedriver_1snap1-0ubuntu2_arm64.deb
+ #1b45573cec252b332730e177efe778df4b5a9dc54df2ad3307a3b88b4684df75 4160 chromium-codecs-ffmpeg-extra_1snap1-0ubuntu2_arm64.deb
+ #577857994ee9e064d3ed4b4fa98da79858e262ca1261fead8c23e1e6ca8a655e 4158 chromium-codecs-ffmpeg_1snap1-0ubuntu2_arm64.deb
+    platform_archive(
         name = "org_chromium_chromium_macos_x64",
         licenses = ["notice"],  # BSD 3-clause (maybe more?)
         sha256 = "7a951016dbb3716c99a17eea35b4d6ebcd953d40b944a8f02d9a76de1295deda",
@@ -188,6 +218,19 @@ def org_mozilla_firefox():
         urls = [
             "https://ftp.mozilla.org/pub/firefox/releases/97.0/linux-x86_64/en-US/firefox-97.0.tar.bz2",
             "https://storage.googleapis.com/dev-infra-mirror/firefox/97.0/linux_x64/browser-bin.tar.bz2",
+        ],
+        named_files = {
+            "FIREFOX": "firefox/firefox",
+        },
+    )
+
+    platform_archive(
+        name = "org_mozilla_firefox_linux_arm64",
+        licenses = ["reciprocal"],  # MPL 2.0
+        #sha256 = "3d0f74790fe6ff5e38324222ab0c47e10edb31970ed67c6dd7a1c84e7017d1a5",
+        # Firefox v127.0
+        urls = [
+            "https://download-installer.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central/firefox-127.0a1.en-US.linux-aarch64.tar.bz2"
         ],
         named_files = {
             "FIREFOX": "firefox/firefox",
